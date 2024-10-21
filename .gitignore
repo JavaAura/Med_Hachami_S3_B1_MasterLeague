@@ -1,0 +1,54 @@
+.env
+# Eclipse specific files
+/.settings/
+/.project
+/.classpath
+
+deploy.sh
+/MANIFEST.MF
+# vs code
+./vscode
+
+# Build directories (Eclipse, Maven, or Gradle)
+bin/
+target/*
+!target/*.war
+out/
+build/
+
+# Maven specific
+*.log
+!pom.xml
+!.mvn
+
+# Gradle specific
+.gradle/
+build/
+
+# Ignore temporary files and logs
+*.tmp
+*.bak
+*.swp
+*.swo
+*.log
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore compiled Java files
+*.class
+*.jar
+*.ear
+
+# Ignore Eclipse working sets
+workingSet.*
+
+# Ignore vsCode
+.vscode
+
+
+push.sh
+src/main/java/utils/DatabaseConnection.java
+src/main/java/utils/DatabaseConnection.java
+/target/
