@@ -39,10 +39,24 @@
     <bean id="playerRepository" class="com.repository.impl.PlayerRepositoryImpl">
         <constructor-arg ref="sessionFactory"/>
     </bean>
+
+    <bean id="gameRepository" class="com.repository.impl.GameRepositoryImpl">
+        <constructor-arg ref="sessionFactory"/>
+    </bean>
+
+
+
+    <!-- Repository Beans -->
+
+    
     
     <!-- Service Beans -->
     <bean id="playerService" class="com.service.impl.PlayerServiceImpl">
         <constructor-arg ref="playerRepository"/>
+    </bean>
+
+    <bean id="gameService" class="com.service.impl.GameServiceImpl">
+        <constructor-arg ref="gameRepository"/>
     </bean>
 
 </beans>

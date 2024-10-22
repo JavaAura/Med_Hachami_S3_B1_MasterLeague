@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.model.Game;
 import com.model.Player;
+import com.service.IGameService;
 import com.service.IPlayerService;
 
 public class Application {
@@ -14,23 +16,41 @@ public class Application {
 
         IPlayerService playerService = (IPlayerService) context.getBean("playerService");
 
-        Player player = new Player();
-        player.setName("Ali");
-        player.setAge(19);
+        IGameService gameService = (IGameService) context.getBean("gameService");
 
-        boolean result = playerService.addPlayer(player);
+        Game game = new Game();
+        game.setName("UCF");
+        game.setDifficulty(2);
 
-        if (result) {
-            System.out.println("Player added successfully.");
-        } else {
-            System.out.println("Failed to add player.");
-        }
+        boolean isGameAdded = gameService.addGame(game);
+        System.out.println("Game added: " + isGameAdded);
 
-        try {
-            displayAllPlayers(playerService);
-        } catch (Exception e) {
-            e.printStackTrace(); 
-        }
+       
+
+        // Step 7: Fetch all games
+        System.out.println("All Games:");
+        gameService.getAllGames().forEach(g -> System.out.println(g.getName()));
+
+       
+
+
+        // Player player = new Player();
+        // player.setName("Ali");
+        // player.setAge(19);
+
+        // boolean result = playerService.addPlayer(player);
+
+        // if (result) {
+        //     System.out.println("Player added successfully.");
+        // } else {
+        //     System.out.println("Failed to add player.");
+        // }
+
+        // try {
+        //     displayAllPlayers(playerService);
+        // } catch (Exception e) {
+        //     e.printStackTrace(); 
+        // }
     }
 
     private static void displayAllPlayers(IPlayerService playerService) throws Exception {
