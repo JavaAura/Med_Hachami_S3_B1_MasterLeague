@@ -6,11 +6,10 @@
                            http://www.springframework.org/schema/tx
                            http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-                           
     <!-- H2 DataSource Bean -->
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="org.h2.Driver"/>
-        <property name="url" value="jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE"/>
+        <property name="url" value="jdbc:h2:~/masterleague;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE"/>
         <property name="username" value="root"/>
         <property name="password" value="root"/>
     </bean>
@@ -35,16 +34,15 @@
 
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
-    <!-- repository Beans -->
-    <bean id="playerRepository" class="com.repository.impl.PlayerRepositoryImpl"/>
+
+    <!-- Repository Beans -->
+    <bean id="playerRepository" class="com.repository.impl.PlayerRepositoryImpl">
+        <constructor-arg ref="sessionFactory"/>
+    </bean>
     
-
-
-    <!-- service Beans -->
+    <!-- Service Beans -->
     <bean id="playerService" class="com.service.impl.PlayerServiceImpl">
         <constructor-arg ref="playerRepository"/>
     </bean>
-
-
 
 </beans>
