@@ -31,6 +31,7 @@ public class Team {
 
     @OneToMany(mappedBy = "team", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Player> players;
+
     @ManyToMany
     @JoinTable(
             name = "team_tournaments",
@@ -41,6 +42,17 @@ public class Team {
 
     @Column(name = "ranking")
     private int ranking;
+
+    public Team(){
+
+    }
+
+    public Team(String name , int ranking){
+        this.name = name;
+        this.ranking = ranking;
+    }
+    
+
 
 
 

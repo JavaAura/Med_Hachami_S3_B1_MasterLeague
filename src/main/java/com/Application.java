@@ -20,7 +20,7 @@ public class Application {
 
         Game game = new Game();
         game.setName("UCF");
-        game.setDifficulty(2);
+        // game.setDifficulty(2);
 
         boolean isGameAdded = gameService.addGame(game);
         System.out.println("Game added: " + isGameAdded);

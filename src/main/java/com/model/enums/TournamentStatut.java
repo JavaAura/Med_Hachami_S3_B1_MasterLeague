@@ -1,6 +1,6 @@
 package com.model.enums;
 
-public interface TournamentStatut {
+public enum TournamentStatut {
     SCHEDULED,
     IN_PROGRESS,
     COMPLETED,
