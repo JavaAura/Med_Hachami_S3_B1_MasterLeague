@@ -57,7 +57,7 @@ public class Tournament {
 
     @OneToMany(mappedBy = "tournament", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Game> games;
-
+    
 
 
     // Getters and Setters

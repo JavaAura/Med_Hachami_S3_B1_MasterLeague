@@ -44,6 +44,14 @@
         <constructor-arg ref="sessionFactory"/>
     </bean>
 
+    <bean id="teamRepository" class="com.repository.impl.TeamRepositoryImpl">
+        <constructor-arg ref="sessionFactory"/>
+    </bean>
+
+    <bean id="tournamentRepository" class="com.repository.impl.TournamentRepositoryImpl">
+        <constructor-arg ref="sessionFactory"/>
+    </bean>
+
 
 
     <!-- Repository Beans -->
@@ -57,6 +65,14 @@
 
     <bean id="gameService" class="com.service.impl.GameServiceImpl">
         <constructor-arg ref="gameRepository"/>
+    </bean>
+
+    <bean id="teamService" class="com.service.impl.TeamServiceImpl">
+        <constructor-arg ref="teamRepository"/>
+    </bean>
+
+    <bean id="teamService" class="com.service.impl.TournamentService">
+        <constructor-arg ref="tournamentRepository"/>
     </bean>
 
 </beans>

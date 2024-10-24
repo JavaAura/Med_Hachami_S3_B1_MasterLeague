@@ -67,5 +67,28 @@ public class Game {
         this.name = name;
     }
 
+    public int getDifficulty(){
+        return this.difficulty;
+    }
+
+    public void setDifficulty(int difficulty){
+        this.difficulty = difficulty;
+    }
+
+    public void setDurationAverageMatch(int durationAverageMatch){
+        this.durationAverageMatch = durationAverageMatch;
+    }
+
+    public int getDurationAverageMatch(){
+       return this.durationAverageMatch;
+    }
+    public void setTournament(Tournament tournament){
+        this.tournament = tournament;
+    }
+
+    public Tournament getTournament(){
+        return this.tournament;
+    }
+
    
 }
