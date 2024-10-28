@@ -1,5 +1,6 @@
 package com.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -9,35 +10,40 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name = "game")
+@Table(
+    name = "game",
+    uniqueConstraints = @UniqueConstraint(columnNames = {"name", "tournament_id"})
+)
 public class Game {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotNull
-    @Size(min = 3, max = 75)
+    @Size(min = 3)
+    @Column(name = "name", nullable = false, length = 75)
     private String name;
 
 
-     @Column(name = "difficulty", nullable = false)
+     @Column(name = "difficulty")
     @Min(value = 1, message = "Difficulty must be at least 1")
     @Max(value = 6, message = "Difficulty cannot exceed 6")
     private int difficulty;
 
-    @Column(name = "duration_average_match", nullable = false)
+    @Column(name = "duration_average_match")
     @Min(value = 1, message = "Average match duration must be at least 1 minute")
     @Max(value = 180, message = "Average match duration cannot exceed 180 minutes")
     private int durationAverageMatch;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "tournament_id", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @JoinColumn(name = "tournament_id" , nullable = true)
     private Tournament tournament;
 
 

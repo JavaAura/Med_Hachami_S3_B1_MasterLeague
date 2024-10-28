@@ -15,6 +15,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 
 
@@ -26,6 +27,7 @@ public class Team {
     private Long id;
 
     @NotNull(message = "Team name should not be null")
+    @Size(min = 3, max = 100, message = "Team name must be between 3 and 10 characters")
     @Column(name = "name", nullable = false)
     private String name;
 
@@ -40,11 +42,17 @@ public class Team {
     )
     private List<Tournament> tournaments;
 
-    @Column(name = "ranking")
+    @NotNull(message = "Team ranking should not be null")
+    @Column(name = "ranking" , nullable=false)
     private int ranking;
 
     public Team(){
 
+    }
+
+    public Team(Long id ,String name){
+        this.id = id;
+        this.name = name;
     }
 
     public Team(String name , int ranking){

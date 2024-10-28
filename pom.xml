@@ -82,6 +82,12 @@
             <version>6.2.5.Final</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.glassfish</groupId>
+            <artifactId>javax.el</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+
          <!-- JUnit 5 -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -111,6 +117,21 @@
             <version>4.5.1</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- JavaFx  -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>13</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>13</version>
+        </dependency>
+
+
+
 
        
 
@@ -182,9 +203,10 @@
               <artifactId>exec-maven-plugin</artifactId>
               <version>3.0.0</version>
               <configuration>
-                  <mainClass>com.Application</mainClass> 
+                  <mainClass>com.App</mainClass> 
               </configuration>
           </plugin>
+          
         </plugins>
     </build>
 
