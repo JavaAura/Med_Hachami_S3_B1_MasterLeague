@@ -20,17 +20,21 @@ public class PlayerServiceImpl implements IPlayerService {
         this.playerRepository = playerRepository;
     }
 
-    @Override
-    @Transactional
-    public boolean addPlayer(Player player) {
-        try {
-            playerRepository.save(player);
-            return true; 
-        } catch (DataAccessException e) {
-            logger.error("Error in adding player", e);
-            return false; 
+        @Override
+        @Transactional
+        public boolean addPlayer(Player player) {
+            logger.info("Player name"+player.getName());
+            logger.info("Player age"+player.getAge());
+            logger.info("Player team id"+player.getTeam().getId());
+
+            try {
+                playerRepository.save(player);
+                return true; 
+            } catch (DataAccessException e) {
+                logger.error("Error in adding player", e);
+                return false; 
+            }
         }
-    }
 
     @Override
     public Player getPlayerById(Long id) {
@@ -56,6 +60,7 @@ public class PlayerServiceImpl implements IPlayerService {
     }
 
     @Override
+    @Transactional
     public void update(Player player) {
         try {
             playerRepository.update(player);
@@ -66,6 +71,7 @@ public class PlayerServiceImpl implements IPlayerService {
     }
 
     @Override
+    @Transactional
     public void delete(Player player) {
         try {
             playerRepository.delete(player);

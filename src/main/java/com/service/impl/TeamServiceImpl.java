@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.exception.DataAccessException;
 import com.model.Team;
@@ -19,6 +20,7 @@ public class TeamServiceImpl implements ITeamService {
     }
 
     @Override
+    @Transactional
     public boolean addTeam(Team team) {
        try {
         teamRepositoryImpl.save(team);
@@ -41,6 +43,7 @@ public class TeamServiceImpl implements ITeamService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Team> getAllTeams() {
         List<Team> teams = null;
         try {
@@ -53,6 +56,7 @@ public class TeamServiceImpl implements ITeamService {
     }
 
     @Override
+    @Transactional
     public void update(Team team) {
         try {
             teamRepositoryImpl.update(team);
@@ -63,6 +67,7 @@ public class TeamServiceImpl implements ITeamService {
     }
 
     @Override
+    @Transactional
     public void delete(Team team) {
         try {
             teamRepositoryImpl.delete(team);

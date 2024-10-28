@@ -71,7 +71,7 @@
         <constructor-arg ref="teamRepository"/>
     </bean>
 
-    <bean id="teamService" class="com.service.impl.TournamentService">
+    <bean id="tournamentService" class="com.service.impl.TournamentServiceImpl">
         <constructor-arg ref="tournamentRepository"/>
     </bean>
 

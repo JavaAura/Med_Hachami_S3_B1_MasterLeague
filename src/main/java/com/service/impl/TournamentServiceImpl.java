@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.exception.DataAccessException;
 import com.model.Tournament;
@@ -21,6 +22,7 @@ public class TournamentServiceImpl implements ITournamentService {
 
 
     @Override
+    @Transactional
     public boolean addTournament(Tournament tournament) {
         try {
             Tournament t = this.repositoryImpl.save(tournament);
@@ -43,6 +45,7 @@ public class TournamentServiceImpl implements ITournamentService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Tournament> getAllTournaments() {
          List<Tournament> tournaments = null;
         try {
@@ -65,6 +68,7 @@ public class TournamentServiceImpl implements ITournamentService {
     }
 
     @Override
+    @Transactional
     public void delete(Tournament tournament) {
         try {
             repositoryImpl.delete(tournament);
