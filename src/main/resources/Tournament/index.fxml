@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.ComboBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="1050.0" style="-fx-background-color: #02030A;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.TournamentController">
+   <children>
+      <VBox alignment="TOP_CENTER" prefHeight="576.0" prefWidth="256.0" style="-fx-background-color: #05071F;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="73.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                   <Image url="@../assets/images/jimmy-fallon.png" />
+                </image>
+                <VBox.margin>
+                   <Insets bottom="10.0" top="50.0" />
+                </VBox.margin></ImageView>
+            <Label text="Admin" textFill="#e7e5e5">
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </Label>
+            <Button fx:id="btnHome" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#gotoHome" prefHeight="42.0" prefWidth="259.0" stylesheets="@../assets/css/style.css" text="Home">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/images/icons8_Xbox_Menu_32px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <VBox.margin>
+                 <Insets bottom="20.0" />
+              </VBox.margin>
+            </Button>
+             <Button fx:id="btnPlayers" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#gotToPlayerPage" prefHeight="42.0" prefWidth="259.0" stylesheets="@../assets/css/style.css" text="Players">
+                <graphic>
+                   <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                      <image>
+                         <Image url="@../assets/images/icons8_Xbox_Menu_32px.png" />
+                      </image>
+                   </ImageView>
+                </graphic>
+                <padding>
+                   <Insets left="50.0" />
+                </padding>
+                <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+             </Button>
+             <Button fx:id="btnTournament" onAction="#toTournamentPage" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" stylesheets="@../assets/css/style.css" text="Tournaments">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/images/icons8_Box_32px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <VBox.margin>
+                 <Insets bottom="20.0" />
+              </VBox.margin>
+            </Button>
+            <Button fx:id="btnTeam" onAction="#toTeamPage" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" stylesheets="@../assets/css/style.css" text="Teams">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/images/icons8_Xbox_Menu_32px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <VBox.margin>
+                <Insets bottom="20.0" />
+             </VBox.margin>
+            </Button>
+            <Button fx:id="btnGame" onAction="#toTournamentPage" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" stylesheets="@../assets/css/style.css" text="Games">
+             <graphic>
+                <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                   <image>
+                      <Image url="@../assets/images/icons8_Box_32px.png" />
+                   </image>
+                </ImageView>
+             </graphic>
+             <padding>
+                <Insets left="50.0" />
+             </padding>
+             <VBox.margin>
+               <Insets bottom="20.0" />
+            </VBox.margin>
+          </Button>
+            
+         </children>
+      </VBox>
+      <StackPane layoutX="258.0"  prefHeight="576.0" prefWidth="993.0" style="-fx-background-color: #02030A;">
+        <children>
+          
+           <Pane fx:id="pnlOverview" prefHeight="554.0" prefWidth="793.0" >
+              <children>
+                 <TextField layoutX="1300.0" layoutY="47.0" prefHeight="27.0" prefWidth="183.0" promptText="search" style="-fx-background-color: #02030A; -fx-border-color: #B7C3D7; -fx-border-radius: 2em;-fx-text-fill:#FFFF8D" />
+                 <Label layoutX="57.0" layoutY="25.0" text="Master League-Tournament" textFill="#e7e5e5">
+                    <font>
+                       <Font size="24.0" />
+                    </font>
+                 </Label>
+                 
+                 <TableView stylesheets="@../assets/css/style.css" fx:id="tournamentTable" layoutX="20.0" layoutY="140.0" prefHeight="350.0" prefWidth="1050.0" style="-fx-text-fill : #e7e5e5; -fx-background-color : #05071F;">
+                    <columns>
+                     <TableColumn fx:id="columnId" prefWidth="170.0" text="Id" />
+                      <TableColumn fx:id="columnName" prefWidth="170.0" text="Name" />
+                      <TableColumn fx:id="columnDateStart" prefWidth="170.0" text="Start date" />
+                      <TableColumn fx:id="columnDateEnd" prefWidth="170.0" text="End date" />
+                      <TableColumn fx:id="columnNumOfSpectators" prefWidth="170.0" text="Number of spectators" />
+                      <TableColumn fx:id="columnStatus" prefWidth="170.0" text="Status" />
+
+
+                    </columns>
+                  </TableView>
+
+                  <GridPane layoutX="1120.0" layoutY="140.0" hgap="10" vgap="15" prefHeight="820.0" prefWidth="450.0" style="-fx-background-color: #05071F; -fx-padding: 20; -fx-border-color: #FFFF8D; -fx-border-width: 2; -fx-border-radius: 5;">                     <columnConstraints>
+                        <ColumnConstraints percentWidth="50.0" />
+                        <ColumnConstraints percentWidth="50.0" />
+                     </columnConstraints>
+                     <children>
+                        <Label text="Add new tournament" textFill="#FFFF8D" GridPane.rowIndex="0" GridPane.columnIndex="0">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        
+                        
+                        <Label text="Name" textFill="#FFFF8D" GridPane.rowIndex="2" GridPane.columnIndex="0">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="tournamentNameField" prefHeight="40.0"  promptText="Enter team name" styleClass="styled-input" GridPane.rowIndex="3" GridPane.columnIndex="0" GridPane.columnSpan="2" />
+                        <Label fx:id="nameErrorLabel" GridPane.columnSpan="2"  textFill="RED" GridPane.rowIndex="4" GridPane.columnIndex="0">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </Label>
+
+                    
+                        <Label text="Date start" textFill="#FFFF8D" GridPane.rowIndex="5" GridPane.columnIndex="0">
+                            <font>
+                               <Font size="12.0" />
+                            </font>
+                         </Label>
+                         
+                        <DatePicker fx:id="dateStartField" prefHeight="40" prefWidth="1220"   GridPane.rowIndex="6" GridPane.columnIndex="0" GridPane.columnSpan="2" />
+                        <Label  fx:id="dateStartErrorLabel" GridPane.columnSpan="2" textFill="RED" GridPane.rowIndex="7" GridPane.columnIndex="0">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </Label>
+
+                        <Label text="Date end" textFill="#FFFF8D" GridPane.rowIndex="8" GridPane.columnIndex="0">
+                            <font>
+                               <Font size="12.0" />
+                            </font>
+                         </Label>
+                         
+                        <DatePicker fx:id="dateEndField" prefHeight="40" prefWidth="1220"   GridPane.rowIndex="9" GridPane.columnIndex="0" GridPane.columnSpan="2" />
+                        <Label  fx:id="dateEndErrorLabel" GridPane.columnSpan="2" textFill="RED" GridPane.rowIndex="10" GridPane.columnIndex="0">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </Label>
+
+                        <Label text="Number of spectators" textFill="#FFFF8D" GridPane.rowIndex="11" GridPane.columnIndex="0">
+                            <font>
+                               <Font size="12.0" />
+                            </font>
+                         </Label>
+                        
+                         <TextField fx:id="numberSpectatorsField" prefHeight="40.0"  promptText="Enter number of spectators" styleClass="styled-input" GridPane.rowIndex="12" GridPane.columnIndex="0" GridPane.columnSpan="2" />
+                         <Label  fx:id="spectatorsErrorLabel" GridPane.columnSpan="2" textFill="RED" GridPane.rowIndex="13" GridPane.columnIndex="0">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </Label>
+
+                         <Label text="Estimated duration" textFill="#FFFF8D" GridPane.rowIndex="14" GridPane.columnIndex="0">
+                            <font>
+                               <Font size="12.0" />
+                            </font>
+                         </Label>
+                         <TextField fx:id="estimatedDurationField" prefHeight="40.0"  promptText="Enter estimated duration" styleClass="styled-input" GridPane.rowIndex="15" GridPane.columnIndex="0" GridPane.columnSpan="2" />
+                         <Label  fx:id="durationErrorLabel" GridPane.columnSpan="2" textFill="RED" GridPane.rowIndex="16" GridPane.columnIndex="0">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </Label>
+
+
+                         <Label text="Time of Pause" textFill="#FFFF8D" GridPane.rowIndex="17" GridPane.columnIndex="0">
+                            <font>
+                               <Font size="12.0" />
+                            </font>
+                         </Label>
+                         <TextField fx:id="timePauseField" prefHeight="40.0"  promptText="Enter time of pause" styleClass="styled-input" GridPane.rowIndex="18" GridPane.columnIndex="0" GridPane.columnSpan="2" />
+                         <Label  fx:id="pauseErrorLabel" GridPane.columnSpan="2" textFill="RED" GridPane.rowIndex="19" GridPane.columnIndex="0">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </Label>
+
+                         
+                       
+                        <Label text="Status" textFill="#FFFF8D" GridPane.rowIndex="20" GridPane.columnIndex="0">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="tournamentStatutFiled"  prefWidth="420.0" prefHeight="40.0" styleClass="styled-input"  GridPane.rowIndex="21" GridPane.columnIndex="0" GridPane.columnSpan="2" />
+                        <Label  fx:id="statutErrorLabel" GridPane.columnSpan="2" textFill="RED" GridPane.rowIndex="22" GridPane.columnIndex="0">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </Label>
+
+                        <Button fx:id="btnSave" onAction="#Save" GridPane.rowIndex="23" GridPane.columnIndex="0" GridPane.columnSpan="2"   mnemonicParsing="false" prefHeight="45.0" prefWidth="159.0" stylesheets="@../assets/css/style.css" text="Save">
+                        </Button>
+
+
+                       
+                        </children>
+                  </GridPane>
+                  <HBox layoutX="120.0" layoutY="920.0" AnchorPane.leftAnchor="459.0">
+                     <children>
+                        <Button fx:id="updateBtn"  onAction="#update"   mnemonicParsing="false" prefHeight="42.0" prefWidth="239.0" stylesheets="@../assets/css/style.css" text="Update">
+                           <VBox.margin>
+                             <Insets right="40.0" />
+                          </VBox.margin>
+                        </Button>
+                        <Button fx:id="deleteBtn" onAction="#delete"   mnemonicParsing="false" prefHeight="42.0" prefWidth="239.0" stylesheets="@../assets/css/style.css" text="Delete">
+                           <VBox.margin>
+                              <Insets left="40.0" />
+                           </VBox.margin>
+                        </Button>
+                       
+                      
+                     </children>
+                  </HBox>
+
+               
+             
+
+      
+              
+            
+                
+              </children>
+           </Pane>
+        </children>
+           
+     </StackPane>
+      
+   </children>
+   <effect>
+      <DropShadow color="#1b1eeb" />
+   </effect>
+</AnchorPane>
